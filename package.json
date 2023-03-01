@@ -1,6 +1,6 @@
 {
   "name": "@julong/vite-plugin-jsx-remove-attrs",
-  "version": "1.0.0-next.4",
+  "version": "1.0.0-next.5",
   "description": "",
   "main": "./dist/index.cjs",
   "scripts": {
