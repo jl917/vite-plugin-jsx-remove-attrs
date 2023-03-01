@@ -40,7 +40,7 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         destination_branch: "main"
-        pr_title: "Pulling ${{ github.ref }} into master"
+        pr_title: "Pulling ${{ github.ref }} into main"
         pr_body: "💥 *An automated PR*"
         pr_reviewer: "jl917"
         pr_draft: false
