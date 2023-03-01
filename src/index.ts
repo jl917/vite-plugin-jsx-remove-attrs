@@ -32,7 +32,7 @@ class PluginTransformImport extends Visitor {
 }
 
 const removeAttributes = (ignoreList: string[] = []): Plugin => ({
-  name: 'vite-plugin-remove-attributes',
+  name: 'vite-plugin-jsx-remove-attrs',
   apply: 'build',
   transform: (src: string, id: string) => {
     let result: ITransformResult = { code: src };
