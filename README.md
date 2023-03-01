@@ -1,4 +1,4 @@
-# vite-plugin-remove-attrs
+# vite-plugin-jsx-remove-attrs
 
 This is a SWC-based plugin that removes some attributes from jsx, such as data-testid.
 
