@@ -1,0 +1,39 @@
+{
+  "name": "@julong/vite-plugin-jsx-remove-attrs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "watch": "jnpkg watch",
+    "build": "jnpkg build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jl917/vite-plugin-jsx-remove-attrs.git"
+  },
+  "keywords": [],
+  "author": "jl917",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jl917/vite-plugin-jsx-remove-attrs/issues"
+  },
+  "homepage": "https://github.com/jl917/vite-plugin-jsx-remove-attrs#readme",
+  "type": "module",
+  "module": "./es/index.js",
+  "exports": {
+    "import": "./es/index.js",
+    "require": "./lib/index.js"
+  },
+  "files": [
+    "dist",
+    "./tscofnig.json"
+  ],
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/git": "10.0.1",
+    "semantic-release": "18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
