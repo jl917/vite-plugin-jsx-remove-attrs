@@ -4,8 +4,7 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "watch": "jnpkg watch",
-    "build": "jnpkg build"
+    "build": "tsup src/index.ts --dts --format cjs,esm --minify terser"
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,8 @@
   "type": "module",
   "module": "./es/index.js",
   "exports": {
-    "import": "./es/index.js",
-    "require": "./lib/index.js"
+    "import": "./index.js",
+    "require": "./index.cjs"
   },
   "files": [
     "dist"
@@ -31,7 +30,10 @@
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@types/node": "^16.18.13",
-    "semantic-release": "18.0.0"
+    "semantic-release": "18.0.0",
+    "terser": "^5.16.5",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
   },
   "publishConfig": {
     "access": "public"

@@ -18,7 +18,6 @@ jobs:
         cache: npm
         node-version: lts/*
     - run: npm ci
-    - run: npm install -g jnpkg
     - run: npm run build
     - run: npx semantic-release
       env:

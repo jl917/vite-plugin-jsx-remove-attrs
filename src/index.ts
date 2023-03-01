@@ -14,7 +14,7 @@ const filterFile = createFilter(include, exclude);
 
 class PluginTransformImport extends Visitor {
   ignoreList: string[];
-  constructor(ignoreList, program) {
+  constructor(ignoreList: string[], program: Program) {
     super();
     this.ignoreList = ignoreList;
     this.visitProgram(program);

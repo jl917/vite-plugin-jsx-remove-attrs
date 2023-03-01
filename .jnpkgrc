@@ -1,5 +1,5 @@
 {
   "es": true,
-  "lib": true,
+  "lib": false,
   "browser": false
 }
