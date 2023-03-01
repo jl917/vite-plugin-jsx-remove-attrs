@@ -1,33 +1,37 @@
-# ./.github/workflows/staging-auto-pr.yaml
 name: develop auto pr
-on:
+'on':
   push:
-    branches: ['develop']
+    branches:
+      - develop
 
 jobs:
   pull-request:
     name: Open PR to next
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
     - uses: actions/checkout@v3
-      name: checkout
-
-    - uses: repo-sync/pull-request@v2
-      name: pull-request
+    - name: pull-request-next
+      uses: repo-sync/pull-request@v2
       with:
         destination_branch: "next"
         pr_title: "Pulling ${{ github.ref }} into next"
         pr_body: "💥 *An automated PR*"
         pr_reviewer: "jl917"
         pr_draft: false
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: repo-sync/pull-request@v2
-      name: pull-request
+    - name: pull-request-master
+      uses: repo-sync/pull-request@v2
       with:
         destination_branch: "master"
-        pr_title: "Pulling ${{ github.ref }} into next"
+        pr_title: "Pulling ${{ github.ref }} into master"
         pr_body: "💥 *An automated PR*"
         pr_reviewer: "jl917"
         pr_draft: false
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
