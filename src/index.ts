@@ -14,10 +14,9 @@ const filterFile = createFilter(include, exclude);
 
 class PluginTransformImport extends Visitor {
   ignoreList: string[];
-  constructor(ignoreList: string[], program: Program) {
+  constructor(ignoreList: string[]) {
     super();
     this.ignoreList = ignoreList;
-    this.visitProgram(program);
   };
   visitCallExpression(n: CallExpression) {
     if (n.callee.type === 'Identifier' && n.callee.value === 'jsx') {
@@ -36,11 +35,11 @@ const removeAttributes = (ignoreList: string[] = []): Plugin => ({
   name: 'vite-plugin-remove-attributes',
   apply: 'build',
   transform: (src: string, id: string) => {
-    let result: ITransformResult = { code: '', map: '' };
+    let result: ITransformResult = { code: src };
     const isTrans = (process.env.NODE_ENV === 'production') && filterFile(id);
     if (isTrans) {
       result = transformSync(src, {
-        plugin: (program: Program): any => new PluginTransformImport(ignoreList, program),
+        plugin: (program: Program): any => new PluginTransformImport(ignoreList).visitProgram(program),
         sourceMaps: true,
         jsc: {
           parser: {
