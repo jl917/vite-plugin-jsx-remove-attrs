@@ -12,7 +12,7 @@ const exclude = ['**/node_modules/**'];
 
 const filterFile = createFilter(include, exclude);
 
-class PluginTransformImport extends Visitor {
+class PluginRemoveAttr extends Visitor {
   ignoreList: string[];
   constructor(ignoreList: string[]) {
     super();
@@ -39,7 +39,7 @@ const removeAttributes = (ignoreList: string[] = []): Plugin => ({
     const isTrans = (process.env.NODE_ENV === 'production') && filterFile(id);
     if (isTrans) {
       result = transformSync(src, {
-        plugin: (program: Program): any => new PluginTransformImport(ignoreList).visitProgram(program),
+        plugin: (program: Program): any => new PluginRemoveAttr(ignoreList).visitProgram(program),
         sourceMaps: true,
         jsc: {
           parser: {
