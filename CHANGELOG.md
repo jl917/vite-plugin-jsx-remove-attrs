@@ -1,3 +1,10 @@
+# [1.0.0-next.6](https://github.com/jl917/vite-plugin-jsx-remove-attrs/compare/v1.0.0-next.5...v1.0.0-next.6) (2023-03-03)
+
+
+### Bug Fixes
+
+* 빌드 에러 예외 처리 ([8b0367d](https://github.com/jl917/vite-plugin-jsx-remove-attrs/commit/8b0367d856877eb894c83eb0d9f480a89f31ad28))
+
 # [1.0.0-next.5](https://github.com/jl917/vite-plugin-jsx-remove-attrs/compare/v1.0.0-next.4...v1.0.0-next.5) (2023-03-01)
 
 
