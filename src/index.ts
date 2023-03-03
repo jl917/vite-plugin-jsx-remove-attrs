@@ -38,16 +38,20 @@ const removeAttributes = (ignoreList: string[] = []): Plugin => ({
     let result: ITransformResult = { code: src };
     const isTrans = (process.env.NODE_ENV === 'production') && filterFile(id);
     if (isTrans) {
-      result = transformSync(src, {
-        plugin: (program: Program): any => new PluginRemoveAttr(ignoreList).visitProgram(program),
-        sourceMaps: true,
-        jsc: {
-          parser: {
-            syntax: 'ecmascript',
-            jsx: true,
+      try {
+        result = transformSync(src, {
+          plugin: (program: Program): any => new PluginRemoveAttr(ignoreList).visitProgram(program),
+          sourceMaps: true,
+          jsc: {
+            parser: {
+              syntax: 'ecmascript',
+              jsx: true,
+            }
           }
-        }
-      })
+        })
+      } catch {
+        console.log('error file: ', id);
+      }
     }
     return result;
   },
